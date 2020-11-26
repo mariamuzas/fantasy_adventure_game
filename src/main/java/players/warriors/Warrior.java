@@ -8,13 +8,17 @@ public abstract class Warrior extends Player {
     private Weapons weaponType;
 
     public Warrior(String name, int healthPoints, Weapons weaponType) {
-        super(name, healthPoints);
+        super(name,  healthPoints);
         this.weaponType = weaponType;
     }
 
     public Weapons getWeaponType() {
         return this.weaponType;
     }
-    
-//    public void changeWeapon() {}
+
+    public void changeWeapon(Weapons weaponType) {
+        this.weaponType = weaponType;
+    }
+
+    //    public void changeWeapon() {}
 }

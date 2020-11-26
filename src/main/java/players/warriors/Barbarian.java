@@ -13,4 +13,12 @@ public class Barbarian extends Warrior {
     public boolean hasBeard() {
         return this.beard;
     }
+
+//    public void addAllPoints() {
+//        
+//        if (beard) {
+//           
+//        }
+//        getHealthPoints() + getWeaponType().getValue()
+//    }
 }

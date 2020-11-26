@@ -19,6 +19,17 @@ public class BarbarianTest {
     assertEquals("Phil", barbarian1.getName());
     }
 
+    @Test
+    public void hasWeapon() {
+        assertEquals(Weapons.AXE, barbarian1.getWeaponType());
+    }
+    
+    @Test
+    public void canChangeWeapon(){
+        barbarian1.changeWeapon(Weapons.CLUB);
+        assertEquals(Weapons.CLUB, barbarian1.getWeaponType());
+
+    }
 
 }
 
