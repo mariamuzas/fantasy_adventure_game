@@ -30,7 +30,6 @@ public class BarbarianTest {
         assertEquals(Weapons.CLUB, barbarian1.getWeaponType());
 
     }
-
 }
 
 

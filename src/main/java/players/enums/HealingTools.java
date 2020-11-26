@@ -1,12 +1,12 @@
 package players.enums;
 
-public enum Creatures {
-    OGRE(10),
-    DRAGON(15);
+public enum HealingTools {
+    POTION(10),
+    HERBS(15);
 
     private int value;
 
-    Creatures(int value) {
+    HealingTools(int value) {
         this.value = value;
     }
 
