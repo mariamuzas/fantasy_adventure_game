@@ -26,7 +26,7 @@ public class User {
         return this.enemiesDefeated();
     }
 
-    public void collectTreasure() {
+    public void collectTreasure(Room room) {
         if (room.getTreasure().getValue() > 0) {
             this.treasuresCollected.add(room.getTreasure());
         }
@@ -53,8 +53,3 @@ public class User {
         return resultOfFight;
     }
 }
-
-//        if the room has an enemy
-//        select player that can fight (which characters that has totalPoints) from players array
-//        player fight against enemy{
-//             which will compare the values of damage and extraPoints
