@@ -29,4 +29,8 @@ public abstract class Warrior extends Player  implements IFight {
         this.totalPoints = getHealthPoints() + weaponType.getValue();
         return this.totalPoints;
     }
+
+    public boolean isCanFight(){
+        return this.canFight;
+    }
 }

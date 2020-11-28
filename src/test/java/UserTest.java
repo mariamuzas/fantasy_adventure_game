@@ -1,7 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
+import players.Cleric;
 import players.Player;
 import players.enums.Creatures;
+import players.enums.HealingTools;
 import players.enums.Spells;
 import players.enums.Weapons;
 import players.magicians.Warlock;
@@ -16,6 +18,7 @@ public class UserTest {
     Room room1;
     Player barbarian;
     Player warlock;
+    Player cleric1;
 
     @Before
     public void before() {
@@ -24,6 +27,7 @@ public class UserTest {
         user = new User();
         barbarian = new Barbarian("Phil", 10, Weapons.AXE, true);
         warlock = new Warlock("Maria", 20, Spells.LIGHTSTAR, Creatures.OGRE, true);
+        cleric1 = new Cleric("Bob", 10, HealingTools.POTION);
     }
 
     @Test
@@ -35,7 +39,25 @@ public class UserTest {
         user.collectTreasure(room1);
         assertEquals(1, user.treasuresCount());
     }
+    @Test
+    public void noEnemiesDefeated() {
+        assertEquals(0, user.enemiesDefeated());
+    }
+    @Test
+    public void noPlayers(){
+        assertEquals(0, user.countOfPlayer());
+    }
+    @Test
+    public void canAddPlayer() {
+        user.addPlayerToArmy(warlock);
+        assertEquals(1, user.countOfPlayer());
+    }
 
-
-
+    @Test
+    public void canFightEnemy() {
+        user.addPlayerToArmy(warlock);
+        user.fight(room);
+        assertEquals(1, user.countFighters());
+        assertEquals(1, user.enemiesDefeated());
+    }
 }

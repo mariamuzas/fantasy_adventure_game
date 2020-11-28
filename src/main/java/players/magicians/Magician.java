@@ -17,7 +17,7 @@ public abstract class Magician extends Player implements IFight {
         this.creature = creature;
         this.totalPoints = totalPoints;
         this.canFight = true;
-        
+
     }
 
     public Spells getSpellType() {
@@ -39,5 +39,9 @@ public abstract class Magician extends Player implements IFight {
     public int getTotals() {
         this.totalPoints = getHealthPoints() + spellType.getValue() + creature.getValue();
         return this.totalPoints;
+    }
+
+    public boolean isCanFight(){
+        return this.canFight;
     }
 }

@@ -26,4 +26,8 @@ public class Cleric extends Player {
         int totalpoints = player.getHealthPoints() + 10;
         player.setHealthPoints(totalpoints);
     }
+
+    public boolean isCanFight(){
+        return this.canFight;
+    }
 }

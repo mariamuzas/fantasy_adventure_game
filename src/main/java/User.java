@@ -11,6 +11,7 @@ public class User {
     private ArrayList<Player> players;
     private ArrayList<Treasures> treasuresCollected;
     private ArrayList<Enemies> enemiesDefeated;
+    ArrayList<IFight> playerFighters = new ArrayList<>();
 
     public User() {
         this.players = new ArrayList<>();
@@ -23,7 +24,7 @@ public class User {
     }
 
     public int enemiesDefeated() {
-        return this.enemiesDefeated();
+        return this.enemiesDefeated.size();
     }
 
     public void collectTreasure(Room room) {
@@ -32,9 +33,19 @@ public class User {
         }
     }
 
-    public String fight() {
-        ArrayList<IFight> playerFighters = new ArrayList<>();
-        String resultOfFight = null;
+    public int countOfPlayer(){
+        return this.players.size();
+    }
+    public int countFighters(){
+        return this.playerFighters.size();
+    }
+
+
+    public void addPlayerToArmy(Player player){
+        this.players.add(player);
+    }
+
+    public void fight(Room room) {
 
         if (room.getEnemy().getDamage() > 0) {
             for (Player player : players) {
@@ -43,13 +54,10 @@ public class User {
                 }
             }
         }
-        for (IFight player : playerFighters) {
-            if (player.getTotals() > room.getEnemy().getDamage()) {
-                resultOfFight = "Win!";
-            } else {
-                resultOfFight = "You lose";
+        for (IFight player2 : playerFighters) {
+            if (player2.getTotals() >= room.getEnemy().getDamage()) {
+                enemiesDefeated.add(room.getEnemy());
             }
         }
-        return resultOfFight;
     }
 }

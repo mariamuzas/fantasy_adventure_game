@@ -30,6 +30,7 @@ public class WarlockTest {
     public void hasABook(){
         assertEquals(true, warlock.hasBook());
     }
+    
     @Test
     public void canChangeWeapon(){
         warlock.changeSpell(Spells.FIREBALL);

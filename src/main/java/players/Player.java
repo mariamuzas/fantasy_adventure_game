@@ -8,7 +8,6 @@ public abstract class Player {
     public Player( String name, int healthPoints) {
         this.name = name;
         this.healthPoints = healthPoints;
-        this.canFight = canFight;
     }
 
     public String getName() {
@@ -23,7 +22,5 @@ public abstract class Player {
         this.healthPoints = healthPoints;
     }
 
-    public boolean isCanFight() {
-        return this.canFight;
-    }
+    public abstract boolean isCanFight();
 }
