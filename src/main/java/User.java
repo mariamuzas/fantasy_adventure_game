@@ -3,7 +3,6 @@ import players.Player;
 import java.util.ArrayList;
 
 public class User {
-    Room room;
 
     private ArrayList<Player> players;
     private ArrayList<Treasures> treasuresCollected;
@@ -43,7 +42,6 @@ public class User {
     }
 
     public void fight(Room room) {
-
         if (room.getEnemy().getDamage() > 0) {
             for (Player player : players) {
                 if (player.isCanFight()) {
@@ -52,9 +50,10 @@ public class User {
             }
         }
         for (IFight player2 : playerFighters) {
-            if (player2.getTotals() >= room.getEnemy().getDamage() && room.getEnemy().getDamage() > 0) {
-                enemiesDefeated.add(room.getEnemy());
-                room.setEnemy(Enemies.NONE);
+            Enemies enemyFighting = room.getEnemy();
+            if (player2.getTotals() >= enemyFighting.getDamage() && enemyFighting.getDamage() > 0) {
+                enemiesDefeated.add(enemyFighting);
+                room.enemyDead(enemyFighting);
             }
         }
     }

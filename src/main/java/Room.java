@@ -1,21 +1,35 @@
-public class Room {
-    private Treasures treasure;
-    private Enemies enemy;
+import java.util.ArrayList;
 
-    public Room(Treasures treasure, Enemies enemy) {
+public class Room {
+
+    private Treasures treasure;
+    private ArrayList<Enemies> enemies;
+
+    public Room(Treasures treasure) {
         this.treasure = treasure;
-        this.enemy = enemy;
+        this.enemies = new ArrayList<>();
     }
 
     public Treasures getTreasure() {
         return this.treasure;
     }
 
-    public Enemies getEnemy() {
-        return this.enemy;
+    public void addEnemyToTheRoom(Enemies enemy){
+        this.enemies.add( enemy);
     }
 
-    public void setEnemy(Enemies enemy) {
-        this.enemy = enemy;
+    public int enemyCount() {
+        return this.enemies.size();
+    }
+
+    public Enemies getEnemy() {
+        if(enemyCount() >= 1) {
+           return this.enemies.get(0);
+        }
+        return Enemies.NONE;
+    }
+
+    public void enemyDead(Enemies enemy) {
+        this.enemies.remove(enemy);
     }
 }

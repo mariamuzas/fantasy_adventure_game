@@ -22,32 +22,41 @@ public class UserTest {
 
     @Before
     public void before() {
-        room = new Room(Treasures.NONE, Enemies.ORC);
-        room1 = new Room(Treasures.GEMS, Enemies.NONE);
+        room = new Room(Treasures.NONE);
+        room1 = new Room(Treasures.GEMS);
         user = new User();
         barbarian = new Barbarian("Phil", 10, Weapons.AXE, true);
         warlock = new Warlock("Maria", 20, Spells.LIGHTSTAR, Creatures.OGRE, true);
         cleric1 = new Cleric("Bob", 10, HealingTools.POTION);
-
     }
 
     @Test
     public void noTreasuresCollected(){
         assertEquals(0, user.treasuresCount());
     }
+
     @Test
     public void canCollectTreasure() {
         user.collectTreasure(room1);
         assertEquals(1, user.treasuresCount());
     }
+
+    @Test
+    public void canAddEnemyToRoom() {
+        room.addEnemyToTheRoom(Enemies.ORC);
+        assertEquals(1, room.enemyCount());
+    }
+
     @Test
     public void noEnemiesDefeated() {
         assertEquals(0, user.enemiesDefeated());
     }
+
     @Test
     public void noPlayers(){
         assertEquals(0, user.countOfPlayer());
     }
+
     @Test
     public void canAddPlayer() {
         user.addPlayerToArmy(warlock);
@@ -56,6 +65,7 @@ public class UserTest {
 
     @Test
     public void canFightEnemy() {
+        room.addEnemyToTheRoom(Enemies.ORC);
         user.addPlayerToArmy(warlock);
         user.fight(room);
         assertEquals(1, user.countFighters());
@@ -63,6 +73,7 @@ public class UserTest {
     }
     @Test
     public void canFightEnemy2() {
+        room.addEnemyToTheRoom(Enemies.ORC);
         user.addPlayerToArmy(warlock);
         user.addPlayerToArmy(cleric1);
         user.addPlayerToArmy(barbarian);
