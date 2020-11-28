@@ -14,4 +14,8 @@ public class Room {
     public Enemies getEnemy() {
         return this.enemy;
     }
+
+    public void setEnemy(Enemies enemy) {
+        this.enemy = enemy;
+    }
 }

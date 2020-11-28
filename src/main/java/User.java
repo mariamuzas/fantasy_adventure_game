@@ -1,8 +1,5 @@
 import players.IFight;
 import players.Player;
-
-import java.awt.image.AreaAveragingScaleFilter;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class User {
@@ -55,8 +52,9 @@ public class User {
             }
         }
         for (IFight player2 : playerFighters) {
-            if (player2.getTotals() >= room.getEnemy().getDamage()) {
+            if (player2.getTotals() >= room.getEnemy().getDamage() && room.getEnemy().getDamage() > 0) {
                 enemiesDefeated.add(room.getEnemy());
+                room.setEnemy(Enemies.NONE);
             }
         }
     }

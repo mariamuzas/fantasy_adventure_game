@@ -28,6 +28,7 @@ public class UserTest {
         barbarian = new Barbarian("Phil", 10, Weapons.AXE, true);
         warlock = new Warlock("Maria", 20, Spells.LIGHTSTAR, Creatures.OGRE, true);
         cleric1 = new Cleric("Bob", 10, HealingTools.POTION);
+
     }
 
     @Test
@@ -58,6 +59,15 @@ public class UserTest {
         user.addPlayerToArmy(warlock);
         user.fight(room);
         assertEquals(1, user.countFighters());
+        assertEquals(1, user.enemiesDefeated());
+    }
+    @Test
+    public void canFightEnemy2() {
+        user.addPlayerToArmy(warlock);
+        user.addPlayerToArmy(cleric1);
+        user.addPlayerToArmy(barbarian);
+        user.fight(room);
+        assertEquals(2, user.countFighters());
         assertEquals(1, user.enemiesDefeated());
     }
 }
