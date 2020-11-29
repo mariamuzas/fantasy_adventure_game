@@ -38,7 +38,7 @@ public class ClericTest {
     @Test
     public void canHeal(){
         cleric1.heal(dwarf1);
-        assertEquals(15, dwarf1.getHealthPoints());
+        assertEquals(10, dwarf1.getHealthPoints());
     }
 
 }

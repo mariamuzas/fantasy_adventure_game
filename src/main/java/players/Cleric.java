@@ -23,7 +23,7 @@ public class Cleric extends Player {
     }
 
     public void heal(Player player) {
-        int totalpoints = player.getHealthPoints() + 10;
+        int totalpoints = player.getHealthPoints() + 5;
         player.setHealthPoints(totalpoints);
     }
 

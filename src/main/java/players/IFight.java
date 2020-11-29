@@ -1,6 +1,7 @@
 package players;
 
 public interface IFight {
-    int getTotals();
+      int getTotals();
     boolean isCanFight();
+    void setTotalsAfterFight(int num);
 }

@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 import players.Cleric;
+import players.IFight;
 import players.Player;
 import players.enums.Creatures;
 import players.enums.HealingTools;

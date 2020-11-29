@@ -15,8 +15,8 @@ public abstract class Magician extends Player implements IFight {
         super(name, healthPoints);
         this.spellType = spellType;
         this.creature = creature;
-        this.totalPoints = totalPoints;
         this.canFight = true;
+        this.totalPoints = totalPoints;
 
     }
 
@@ -36,8 +36,12 @@ public abstract class Magician extends Player implements IFight {
         this.creature = mythicalCreature;
     }
 
+    public void setTotalsAfterFight(int lostPoints) {
+        this.totalPoints =- lostPoints;
+    }
+
     public int getTotals() {
-        this.totalPoints = getHealthPoints() + spellType.getValue() + creature.getValue();
+        this.totalPoints = getHealthPoints() + creature.getValue() + spellType.getValue();
         return this.totalPoints;
     }
 

@@ -30,6 +30,10 @@ public abstract class Warrior extends Player  implements IFight {
         return this.totalPoints;
     }
 
+    public void setTotalsAfterFight(int totalPoints) {
+        this.totalPoints =- totalPoints;
+    }
+
     public boolean isCanFight(){
         return this.canFight;
     }
